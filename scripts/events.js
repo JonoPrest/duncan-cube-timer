@@ -37,6 +37,8 @@ function Event(name, scrambleFunction) {
 
 // All the events included in the timer, plus an 'other'
 
+var duncan = new Event("duncan", duncanScramble);
+
 var twoByTwo = new Event("2x2", genScramble2);
 
 var threeByThree = new Event("3x3", genScramble3);
@@ -65,7 +67,9 @@ var other = new Event("other", genScrambleEmpty);
 
 
 
-var events = [twoByTwo, threeByThree, fourByFour, fiveByFive,
+
+
+var events = [duncan, twoByTwo, threeByThree, fourByFour, fiveByFive,
              sixBySix, sevenBySeven, oneHanded, blindfolded,
              pyraminx, megaminx, square1, skewb, other];
 
@@ -132,6 +136,18 @@ function changeEvent(changeTo) {
     var a = document.getElementById("ao5").children[0];
     var b = document.getElementById("bao5").children[0];
     
+    // Show duncan's headers list if tab is clicked
+    const duncanHeaders = document.getElementById('duncanHeaders');
+        const spinner = document.getElementById('spinner');
+    if (changeTo === duncan) {
+        
+        duncanHeaders.style.display = "flex";
+        if(!googleDataLoaded) {
+            spinner.style.display = "block";
+        }
+    } else {
+        duncanHeaders.style.display = "none";
+    }
     
     if (changeTo == sixBySix || 
         changeTo == sevenBySeven ||
@@ -162,6 +178,10 @@ function updateFontSize() {
         
         // Set font size of scramble to 12
         scrambleElement.style.fontSize = "12pt";
+    }
+
+    else if ( currentEvent === duncan) {
+        scrambleElement.style.fontSize = "30pt";
     }
     
 }

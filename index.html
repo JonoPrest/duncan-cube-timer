@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <meta charset="UTF-8">
     <title>Cube Timer</title>
@@ -38,6 +39,7 @@
             <table id="eventsTable" class="tabs">
                 <tbody id="eventsTableBody">
                     <tr id="eventsParent">
+                        <td id="duncan">Duncan</td>
                         <td id="2x2">2x2</td>
                         <td id="3x3" class="active">3x3</td>
                         <td id="4x4">4x4</td>
@@ -50,10 +52,20 @@
                         <td id="mega">Mega</td>
                         <td id="sq1">Sq-1</td>
                         <td id="skewb">Skewb</td>
-                        <td id="other">Other</td>
+                        <td id="other">other</td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+            <!-- Duncan Headers -->
+        <div class="duncanHeaders" id="duncanHeaders">
+            <div class="currentHeader" id="currentHeader" >
+                <h3 id="currentHeaderText">Current</h3><i class="fas fa-chevron-circle-down" ></i>
+            </div> 
+            <i class="fas fa-spinner" id="spinner"></i>
+            <ul class="duncanHeadersList" id="duncanHeadersList">
+                
+            </ul>
         </div>
         
         <div id="scrambleDiv">
@@ -605,11 +617,16 @@
     <script type="text/javascript" src="scripts/scramble-lib/scramble_minx.js"></script>
     <script type="text/javascript" src="scripts/scramble-lib/scramble_pyram.js"></script>
     <script type="text/javascript" src="scripts/scramble-lib/scramble_sq1.js"></script>
+
+    <!-- Duncan Scripts -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+    <script type="text/javascript" src="scripts/duncan.js"></script>
     
     <!-- Putting them all together myself, for my needs -->
     <script type="text/javascript" src="scripts/scramble.js"></script>
     
     <!-- Website- and timer-specific js files (I did these! ^.^) -->
+   
     <script type="text/javascript" src="scripts/settings.js"></script>
     <script type="text/javascript" src="scripts/timer.js"></script>
     <script type="text/javascript" src="scripts/times.js"></script>

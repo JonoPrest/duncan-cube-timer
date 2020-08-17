@@ -7,6 +7,12 @@ opposite["R"] = "L"; opposite["L"] = "R";
 opposite["U"] = "D"; opposite["D"] = "U";
 opposite["F"] = "B"; opposite["B"] = "F";
 
+function duncanScramble() {
+    if (headerChosen) {
+        scrambleHeaderValues(headerChoice);
+    }
+    return randomScrambleValue;
+}
 
 function genScramble2() {
     return scramblers["222"].getRandomScramble();
