@@ -115,7 +115,9 @@ function changeEvent(changeTo) {
     updateFontSize();
     
     // Update scramble element and preview if necessary
-    updateScramble();
+        updateScramble();
+    
+    
     
     // Update average display box
     updateAverageDisplays();

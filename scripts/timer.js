@@ -90,6 +90,11 @@ function Timer() {
         
         // Set startedAt to a .getTime() value
         this.startedAt = (new Date()).getTime();
+
+        // Updates scramble for Duncan tab as he only wants to see it after timer starts
+        if(currentEvent===duncan) {
+            updateScramble();
+        }
     }
     
     // Timer.stop()

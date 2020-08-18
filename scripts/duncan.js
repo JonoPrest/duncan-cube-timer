@@ -65,7 +65,6 @@ function chooseHeader(e) {
   currentHeader.style.display = "flex";
   currentHeaderText.innerText = headerChoice;
   scrambleHeaderValues(headerChoice);
-  updateScramble();
 }
 
 // Choose a different header

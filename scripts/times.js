@@ -318,7 +318,7 @@ function addTime(time, scramble=currentScramble.scramble_string||currentScramble
     if (time < currentEvent.best.time) { currentEvent.best = thisTime; }
     
     // Update scramble var and element text
-    if (u) { updateScramble(); }
+    if (u===true && currentEvent !== duncan) { updateScramble(); }
     
     updateAverageDisplays();
     
