@@ -8,82 +8,70 @@
     <meta charset="UTF-8">
     <title>Cube Timer</title>
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    
+
     <script type="text/javascript" src="scripts/analytics.js"></script>
 </head>
 
 <body>
-    
-    <img id="settingsIcon" 
-         src="images/settings_gray.png" 
-         width="30" height="30" />
-    
-    <img id="infoIcon" 
-         src="images/info_gray.png" 
-         width="25" height="25" />
-    
-    <img id="importIcon" 
-         src="images/upload_gray.png" 
-         width="25" height="25" />
-    
-    <img id="exportIcon" 
-         src="images/download_gray.png" 
-         width="25" height="25" />
-    
-    <img id="addTimesIcon" 
-         src="images/add_gray.png" 
-         width="20" height="20" />
-    
+
+    <img id="settingsIcon" src="images/settings_gray.png" width="30" height="30" />
+
+    <img id="infoIcon" src="images/info_gray.png" width="25" height="25" />
+
+    <img id="importIcon" src="images/upload_gray.png" width="25" height="25" />
+
+    <img id="exportIcon" src="images/download_gray.png" width="25" height="25" />
+
+    <img id="addTimesIcon" src="images/add_gray.png" width="20" height="20" />
+
     <div id="timeContainer">
+
         <div id="tabsDiv">
+
+
             <table id="eventsTable" class="tabs">
+
                 <tbody id="eventsTableBody">
                     <tr id="eventsParent">
-                        <td id="duncan">Duncan</td>
-                        <td id="2x2">2x2</td>
-                        <td id="3x3" class="active">3x3</td>
+                        <div class="loading-tabs" id="loading-tabs">
+                            <h2>Loading Sheets...</h2>
+                            <i class="fas fa-spinner" id="tabs-spinner"></i>
+                        </div>
+                        <!-- <td id="2x2">2x2</td>
+                        <td id="3x3">3x3</td>
                         <td id="4x4">4x4</td>
-                        <td id="5x5">5x5</td>
-                        <td id="6x6">6x6</td>
-                        <td id="7x7">7x7</td>
-                        <td id="oh">OH</td>
-                        <td id="bld">BLD</td>
-                        <td id="pyra">Pyra</td>
-                        <td id="mega">Mega</td>
-                        <td id="sq1">Sq-1</td>
-                        <td id="skewb">Skewb</td>
-                        <td id="other">other</td>
+                        <td id="5x5">5x5</td> -->
                     </tr>
                 </tbody>
             </table>
         </div>
-            <!-- Duncan Headers -->
+        <!-- Duncan Headers -->
         <div class="duncanHeaders" id="duncanHeaders">
-            <div class="currentHeader" id="currentHeader" >
-                <h3 id="currentHeaderText">Current</h3><i class="fas fa-chevron-circle-down" ></i>
-            </div> 
-            <i class="fas fa-spinner" id="spinner"></i>
+            <div class="currentHeader" id="currentHeader">
+                <h3 id="currentHeaderText"></h3><i class="fas fa-chevron-circle-down"></i>
+            </div>
+            <i class="fas fa-spinner" id="sheets-spinner"></i>
             <ul class="duncanHeadersList" id="duncanHeadersList">
-                
+
             </ul>
         </div>
-        
+
         <div id="scrambleDiv">
             <span id="scramble"></span>
         </div>
-        
+
         <div id="timeDiv">
             <span id="time">
                 0.000
             </span>
         </div>
-        
+
     </div>
-    
+
     <div id="bottomContentContainer">
-        
+
         <div id="innerBottomContent">
-            
+
             <div id="timesDiv">
                 <div id="innerTimesDiv">
                     <table id="timesTable">
@@ -99,60 +87,60 @@
                             <td class="label">Average of 5:</td>
                             <td class="value">-</td>
                         </tr>
-                        
+
                         <tr id="ao12">
                             <td class="label">Average of 12:</td>
                             <td class="value">-</td>
                         </tr>
-                        
+
                         <tr class="gap"></tr>
-                        
+
                         <tr id="sessionAverage">
                             <td class="label">Session avg:</td>
                             <td class="value special">-</td>
                         </tr>
-                        
+
                         <tr id="sessionMean">
                             <td class="label">Session mean:</td>
                             <td class="value special">-</td>
                         </tr>
-                        
+
                         <tr class="gap"></tr>
-                        
+
                         <tr id="best">
                             <td class="label">Best time:</td>
                             <td class="value">-</td>
                         </tr>
-                        
+
                         <tr id="worst">
                             <td class="label">Worst time:</td>
                             <td class="value">-</td>
                         </tr>
-                        
+
                         <tr class="gap"></tr>
-                        
+
                         <tr id="bao5">
                             <td class="label">Best avg of 5:</td>
                             <td class="value">-</td>
                         </tr>
-                        
+
                         <tr id="bao12">
                             <td class="label">Best avg of 12:</td>
                             <td class="value">-</td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
 
         </div>
-                    
-    
+
+
     </div>
-    
+
     <div class="modalWrapper" id="addManuallyWrapper">
         <div class="modal" id="addManuallyModal">
-            
+
             <span class="closeModal">X</span>
             <span id="addTimesTitle">Add Times</span>
             <table class="tabs" id="addTimesTabs">
@@ -163,125 +151,123 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <div id="addOneDiv">
-                <p>To add one time, enter the time with the format 
-                    hh:mm:ss.xxx.  The hours and minutes are optional,
-                    as are the decimal places.  Then, enter the scramble
-                    in the larger adjacent text field.  Finally, click
+                <p>To add one time, enter the time with the format
+                    hh:mm:ss.xxx. The hours and minutes are optional,
+                    as are the decimal places. Then, enter the scramble
+                    in the larger adjacent text field. Finally, click
                     "Add Time" to add it to the list!</p>
                 <br>
-                <input id="timeInput" type="text" 
-                       placeholder="Time" 
-                       maxlength="12"/>
-                
-                <input id="scrambleInput" type="text" 
-                       maxlength="400" 
-                       placeholder="Scramble"/>
-                
+                <input id="timeInput" type="text" placeholder="Time" maxlength="12" />
+
+                <input id="scrambleInput" type="text" maxlength="400" placeholder="Scramble" />
+
                 <p id="addTimeSuccess">Error: invalid time</p>
-                
+
                 <button id="addTimeButton">ADD TIME</button>
             </div>
-            
+
             <div id="addManyDiv">
-                <p>To add lots of solves at once, input each time with 
-                    the format hh:mm:ss.xxx, separated by a comma ( , ). 
-                    Once again, the hours and minutes are optional, as 
-                    are the decimal places.Then, click "Add Times".  
-                    Currently, scrambles are not supported for adding 
+                <p>To add lots of solves at once, input each time with
+                    the format hh:mm:ss.xxx, separated by a comma ( , ).
+                    Once again, the hours and minutes are optional, as
+                    are the decimal places.Then, click "Add Times".
+                    Currently, scrambles are not supported for adding
                     many times at once.</p>
-                
+
                 <textarea id="addTimesTextarea"></textarea>
                 <br>
                 <p id="addTimesSuccess"></p>
-                
+
                 <button id="addTimesButton">ADD TIMES</button>
             </div>
-            
-            
+
+
         </div>
     </div>
-    
+
     <div class="modalWrapper" id="exportWrapper">
         <div class="modal" id="exportModal">
-            
+
             <span class="closeModal">X</span>
-            
+
             <span id="exportTitle">Export Times</span>
-            
-            <p>To export times, you can either 
+
+            <p>To export times, you can either
                 <a id="exportDownload">download a text file</a>
-            or copy and paste the string below. Be sure to save
-            it somewhere so you can import it later!</p>
-            
-            <textarea spellcheck="false" id="exportTextarea" class="ie" value=""  placeholder="No times yet. Go solve!"></textarea>
-            
+                or copy and paste the string below. Be sure to save
+                it somewhere so you can import it later!</p>
+
+            <textarea spellcheck="false" id="exportTextarea" class="ie" value=""
+                placeholder="No times yet. Go solve!"></textarea>
+
         </div>
     </div>
-    
+
     <div class="modalWrapper" id="importWrapper">
         <div class="modal" id="importModal">
             <span class="closeModal">X</span>
-            
+
             <span id="importTitle">Import Times</span>
-            
+
             <p>To import times, paste the string you got when you
-            exported your times in the area below, then click import!</p>
-            <textarea spellcheck="false" id="importTextarea" class="ie" value="" placeholder="Paste the string here!"></textarea>
-            
+                exported your times in the area below, then click import!</p>
+            <textarea spellcheck="false" id="importTextarea" class="ie" value=""
+                placeholder="Paste the string here!"></textarea>
+
             <br>
             <p id="importError">Invalid import string.</p>
-            
+
             <span id="preserveLabel">Preserve current times: </span>
-            
+
             <label class="switch" id="preserveToggle">
                 <input type="checkbox" id="preserveInput" checked="false">
                 <span class="slider"></span>
             </label>
-            
+
             <button id="importButton">IMPORT</button>
-            
+
         </div>
     </div>
-    
+
     <div class="modalWrapper" id="avgInfoWrapper">
         <div class="modal" id="avgInfo">
-            
+
             <span class="closeModal">X</span>
-            
+
             <span id="avgInfoValue">10.313</span>
             <br><br>
-            
+
             <span id="avgTimesList">11.141, 9.052, (8.933), 10.745, (12.292)</span>
             <br><br>
-            
+
             <span id="timeIndexes">(Times 3 to 7)</span>
-            
+
         </div>
     </div>
-    
+
     <div class="modalWrapper" id="timeInfoWrapper">
         <div class="modal" id="timeInfo">
-            
+
             <span class="closeModal">X</span>
-            
+
             <span id="timeInfoValue">7.74</span>
             <br>
-            
+
             <span id="timeInfoMilliseconds">7743 milliseconds</span>
             <span id="timeInfoIndex">(Time 0)</span>
-            
+
             <br><br><br><span id="timeInfoScrambleLabel">Scramble:</span><br><br>
             <span id="timeInfoScramble">Unknown Scramble</span>
         </div>
     </div>
-    
+
     <div class="modalWrapper" id="settingsWrapper">
         <div class="modal" id="settings">
-            
+
             <h1>Timer Settings</h1>
-            
+
             <table id="settingsTabsTable" class="tabs">
                 <tbody id="settingsTabsBody">
                     <tr id="settingsTabs">
@@ -291,9 +277,9 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <div id="timerSettingsWrapper">
-            
+
                 <div id="inspectionSettings">
 
                     <span class="major">Inspection time:</span>
@@ -302,13 +288,12 @@
                         <span class="slider"></span>
                     </label>
 
-                    <input id="inspectionSeconds" type="text" 
-                           placeholder="Length" value="15">
+                    <input id="inspectionSeconds" type="text" placeholder="Length" value="15">
                     <span class="minor">seconds</span>
                 </div><br>
 
-                
-                
+
+
                 <div id="holdDelaySettings">
 
                     <span class="major">Hold delay:</span>
@@ -317,13 +302,12 @@
                         <span class="slider"></span>
                     </label>
 
-                    <input id="holdDelaySeconds" type="text"
-                           placeholder="Length" value="0.55">
+                    <input id="holdDelaySeconds" type="text" placeholder="Length" value="0.55">
                     <span class="minor">seconds</span>
                 </div>
 
-                
-                
+
+
                 <div id="hideTimerSettings">
 
                     <span class="major">Hide running timer:</span>
@@ -348,54 +332,54 @@
                 </div>
 
                 <br><br><br>
-            
+
             </div>
-            
-            
-            
+
+
+
             <div id="visualSettingsWrapper">
                 <div id="timerFontDiv">
-                    
+
                     <p id="fontLabel">Timer Font: </p>
-                    
+
                     <button class="font" id="font1">FONT 1</button>
                     <button class="font" id="font2">FONT 2</button>
                     <button class="font" id="font3">FONT 3</button>
                     <button class="font last" id="font4">FONT 4</button>
-                    
+
                     <p id="displayFont">
                         123:45:67.890
                     </p>
-                    
+
                 </div>
             </div>
-            
-            
-            
+
+
+
             <div id="eventSettingsWrapper">
                 <div id="clearTimes">
                     <button id="clearTimesButton">CLEAR TIMES</button>
                 </div>
                 <div id="clearTimesConfirm">
-                    
-                    <p>Are you sure you want to clear 
-                        <span id="confirmTimeCount">4</span> 
+
+                    <p>Are you sure you want to clear
+                        <span id="confirmTimeCount">4</span>
                         times from the current event
                         (<span id="confirmEventName">3x3</span>)?</p>
-                    
+
                     <button id="clearConfirmButton">YES</button>
                     <button id="clearCancelButton">NO</button>
                 </div>
             </div>
-            
+
             <button id="settingsSave">SAVE</button>
         </div>
     </div>
-    
+
     <div class="modalWrapper" id="infoWrapper">
         <div class="modal" id="about">
             <span class="closeModal">X</span>
-            
+
             <div id="infoTabsDiv">
                 <table id="infoTabs" class="tabs">
                     <tbody>
@@ -407,226 +391,216 @@
                     </tbody>
                 </table>
             </div>
-            
-            
+
+
             <div id="infoScroll">
-            <div id="innerInfoScroll">
-            <div class="infoContent" id="howTo">
-                <h2>Using the timer</h2>
-                
-                <p>To use the timer, simply hold down the space bar
-                until the time in the middle of the screen turns green.
-                At that point, upon releasing the space bar, the timer
-                will start, and won't stop again until a key is pressed,
-                at which point it will stop and log your time.
-                </p>
-                
-                <p>In addition to timing your solves and calculating
-                averages and statistics, this timer also generates
-                scrambles for each solve, which can be seen at the
-                top of the screen. You are welcome to use these 
-                scrambles, which are stored along with each time, or
-                hand scramble the cube yourself. </p>
-                
-                <p>The timer supports the storage of multiple sets
-                of times as well. You can select a different event
-                at the top of the screen, which includes most common
-                WCA events as well as an "Other" category. It does not
-                currently support the creation of custom events.</p>
+                <div id="innerInfoScroll">
+                    <div class="infoContent" id="howTo">
+                        <h2>Using the timer</h2>
+
+                        <p>To use the timer, simply hold down the space bar
+                            until the time in the middle of the screen turns green.
+                            At that point, upon releasing the space bar, the timer
+                            will start, and won't stop again until a key is pressed,
+                            at which point it will stop and log your time.
+                        </p>
+
+                        <p>In addition to timing your solves and calculating
+                            averages and statistics, this timer also generates
+                            scrambles for each solve, which can be seen at the
+                            top of the screen. You are welcome to use these
+                            scrambles, which are stored along with each time, or
+                            hand scramble the cube yourself. </p>
+
+                        <p>The timer supports the storage of multiple sets
+                            of times as well. You can select a different event
+                            at the top of the screen, which includes most common
+                            WCA events as well as an "Other" category. It does not
+                            currently support the creation of custom events.</p>
+                    </div>
+
+                    <div class="infoContent" id="aboutMe">
+                        <h2>Who am I?</h2>
+
+                        <p>I'm Professor L! I'm seventeen years old, and I
+                            have about two and half years of computer science
+                            experience under my belt. I intend to major in it in
+                            college to further my mastery, but in the mean time I'm
+                            trying to make the most of my free time by bettering
+                            my frontend web development skills. Building sites
+                            like this one helps me maintain and hone my prowess
+                            in preparation for the future.</p>
+
+                        <p>I also take an interest in music, and you can
+                            check out my
+                            <a href="https://soundcloud.com/professor_l">
+                                Soundcloud</a>
+                            if you want to have a listen to some of my work.
+                            My other hobbies include Rubik's Cubing
+                            (unsurprisingly), Tetris, and creative writing.
+                            Oh, and as tradition dictates, here's a link to my
+                            <a href="https://github.com/Professor-L">
+                                GitHub</a> as well as a link to
+                            <a href="https://github.com/Professor-L/rubiks-cube-timer">this project</a>
+                            speficially.</p>
+
+                        <h2>Contact Me</h2>
+
+                        <p>You can
+                            <a href="mailto:ProfessorLWebDev@gmail.com">
+                                email me</a>
+                            at any point with questions, comments, bug reports,
+                            or even just to say hi! The address is
+                            ProfessorLWebDev@gmail.com, and I'll try to get back
+                            to you as quickly as I can, though it may be a few day
+                            since I'm working two jobs over the summer.
+                        </p>
+
+                        <h2>Donate</h2>
+                        <p>Beacuse of the amount of time I devote to this
+                            project,
+                            <a href="https://www.paypal.me/ProfessorElle">
+                                donations via PayPal</a> are much appreciated.
+                            If this site recieves substantial support, I'll
+                            set up a Patreon page and pay for hosting on a
+                            custom domain, but until then GitHub Pages hosting
+                            will suffice.</p>
+                    </div>
+
+
+
+                    <div class="infoContent" id="versionNotes">
+                        <h2>Version 0.2.2</h2>
+                        <h4>August 19, 2017</h4>
+                        <ul>
+                            <li>Settings saved in localStorage</li>
+                            <li>Add times manually</li>
+                            <li>HTML file cleaned up</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.2.1</h2>
+                        <h4>August 18, 2017</h4>
+                        <ul>
+                            <li>Added timer font options</li>
+                            <li>Added option to reset/clear event</li>
+                        </ul>
+
+
+
+
+                        <h2>Version 0.2.0</h2>
+                        <h4>August 17, 2017</h4>
+                        <ul>
+                            <li>Importation and exportation of all events
+                                simultaneously and manually</li>
+                            <li>Option to preserve current times on import</li>
+                            <li>Modal style update and animation added</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.1.3</h2>
+                        <h4>August 16, 2017</h4>
+                        <ul>
+                            <li>Fixed ao12 info display bug</li>
+                            <li>Session averages!</li>
+                            <li>Time info now displays index of time</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.1.2</h2>
+                        <h4>August 15, 2017</h4>
+                        <ul>
+                            <li>Display best/worst info on click</li>
+                            <li>Display average of 5 &amp; 12 info on click</li>
+                            <li>6x6, 7x7, and BLD now have mean of 3 instead of average of 5</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.1.1</h2>
+                        <h4>August 13, 2017</h4>
+                        <ul>
+                            <li>DNFs added</li>
+                            <li>Import/export supports +2 and DNF</li>
+                            <li>Importation bug fixed</li>
+                            <li>+2, DNF functions updated for code legibility</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.1.0</h2>
+                        <h4>August 7, 2017</h4>
+                        <ul>
+                            <li>Times saved with localStorage!</li>
+                            <li>Import/export strings supported in save.js</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.0.4</h2>
+                        <h4>August 2, 2017</h4>
+                        <ul>
+                            <li>Updated 6x6, 7x7 syntax</li>
+                            <li>Beginnings of save feature in save.js</li>
+                            <li>Import and export buttons added (no functionality yet)</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.0.3</h2>
+                        <h4>July 30, 2017</h4>
+                        <ul>
+                            <li>Random-state scrambles, using
+                                <a href="https://github.com/cubing/jsss">JSSS</a>
+                                (SVG Scramble drawing unsupported)
+                            </li>
+                            <li>Scramble storage in memory changed in case the JSSS API is fixed</li>
+                            <li>Added Square-1</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.0.2</h2>
+                        <h4>July 27, 2017</h4>
+                        <ul>
+                            <li>Reset timer on event change</li>
+                            <li>Added setting to hide timer when running</li>
+                            <li>Timer stops when any key is pressed</li>
+                            <li>Settings modal only closes on save</li>
+                        </ul>
+
+
+
+                        <h2>Version 0.0.1 (Alpha Release)</h2>
+                        <h4>July 26, 2017</h4>
+                        <ul>
+                            <li>Scrambles</li>
+                            <li>Time storage</li>
+                            <li>Multiple events</li>
+                            <li>Basic statistics</li>
+                            <li>Stable UI</li>
+                            <li>Time deletion</li>
+                            <li>Penalties</li>
+                        </ul>
+                        <h4></h4>
+                    </div>
+                </div>
             </div>
-            
-            <div class="infoContent" id="aboutMe">
-                <h2>Who am I?</h2>
-                
-                <p>I'm Professor L! I'm seventeen years old, and I
-                have about two and half years of computer science
-                experience under my belt. I intend to major in it in
-                college to further my mastery, but in the mean time I'm
-                trying to make the most of my free time by bettering
-                my frontend web development skills. Building sites
-                like this one helps me maintain and hone my prowess
-                in preparation for the future.</p>
-                
-                <p>I also take an interest in music, and you can
-                check out my 
-                    <a href="https://soundcloud.com/professor_l">
-                        Soundcloud</a> 
-                if you want to have a listen to some of my work.
-                My other hobbies include Rubik's Cubing
-                (unsurprisingly), Tetris, and creative writing.
-                Oh, and as tradition dictates, here's a link to my
-                    <a href="https://github.com/Professor-L">
-                    GitHub</a> as well as a link to 
-                    <a href="https://github.com/Professor-L/rubiks-cube-timer">this project</a>
-                speficially.</p>
-                
-                <h2>Contact Me</h2>
-                
-                <p>You can 
-                    <a href="mailto:ProfessorLWebDev@gmail.com">
-                    email me</a>
-                at any point with questions, comments, bug reports,
-                or even just to say hi! The address is 
-                ProfessorLWebDev@gmail.com, and I'll try to get back
-                to you as quickly as I can, though it may be a few day
-                since I'm working two jobs over the summer.
-                </p>
-                
-                <h2>Donate</h2>
-                <p>Beacuse of the amount of time I devote to this
-                project, 
-                    <a href="https://www.paypal.me/ProfessorElle">
-                        donations via PayPal</a> are much appreciated.
-                    If this site recieves substantial support, I'll 
-                    set up a Patreon page and pay for hosting on a
-                    custom domain, but until then GitHub Pages hosting
-                    will suffice.</p>
-            </div>
-            
-                
-                
-            <div class="infoContent" id="versionNotes">
-                <h2>Version 0.2.2</h2>
-                <h4>August 19, 2017</h4>
-                <ul>
-                    <li>Settings saved in localStorage</li>
-                    <li>Add times manually</li>
-                    <li>HTML file cleaned up</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.2.1</h2>
-                <h4>August 18, 2017</h4>
-                <ul>
-                    <li>Added timer font options</li>
-                    <li>Added option to reset/clear event</li>
-                </ul>
-                
-                
-                
-                
-                <h2>Version 0.2.0</h2>
-                <h4>August 17, 2017</h4>
-                <ul>
-                    <li>Importation and exportation of all events 
-                        simultaneously and manually</li>
-                    <li>Option to preserve current times on import</li>
-                    <li>Modal style update and animation added</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.1.3</h2>
-                <h4>August 16, 2017</h4>
-                <ul>
-                    <li>Fixed ao12 info display bug</li>
-                    <li>Session averages!</li>
-                    <li>Time info now displays index of time</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.1.2</h2>
-                <h4>August 15, 2017</h4>
-                <ul>
-                    <li>Display best/worst info on click</li>
-                    <li>Display average of 5 &amp; 12 info on click</li>
-                    <li>6x6, 7x7, and BLD now have mean of 3 instead of average of 5</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.1.1</h2>
-                <h4>August 13, 2017</h4>
-                <ul>
-                    <li>DNFs added</li>
-                    <li>Import/export supports +2 and DNF</li>
-                    <li>Importation bug fixed</li>
-                    <li>+2, DNF functions updated for code legibility</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.1.0</h2>
-                <h4>August 7, 2017</h4>
-                <ul>
-                    <li>Times saved with localStorage!</li>
-                    <li>Import/export strings supported in save.js</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.0.4</h2>
-                <h4>August 2, 2017</h4>
-                <ul>
-                    <li>Updated 6x6, 7x7 syntax</li>
-                    <li>Beginnings of save feature in save.js</li>
-                    <li>Import and export buttons added (no functionality yet)</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.0.3</h2>
-                <h4>July 30, 2017</h4>
-                <ul>
-                    <li>Random-state scrambles, using 
-                        <a href="https://github.com/cubing/jsss">JSSS</a>
-                         (SVG Scramble drawing unsupported)
-                    </li>
-                    <li>Scramble storage in memory changed in case the JSSS API is fixed</li>
-                    <li>Added Square-1</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.0.2</h2>
-                <h4>July 27, 2017</h4>
-                <ul>
-                    <li>Reset timer on event change</li>
-                    <li>Added setting to hide timer when running</li>
-                    <li>Timer stops when any key is pressed</li>
-                    <li>Settings modal only closes on save</li>
-                </ul>
-                
-                
-                
-                <h2>Version 0.0.1 (Alpha Release)</h2>
-                <h4>July 26, 2017</h4>
-                <ul>
-                    <li>Scrambles</li>
-                    <li>Time storage</li>
-                    <li>Multiple events</li>
-                    <li>Basic statistics</li>
-                    <li>Stable UI</li>
-                    <li>Time deletion</li>
-                    <li>Penalties</li>
-                </ul>
-                <h4></h4>
-            </div>
-            </div>
-            </div>
-            
+
         </div>
     </div>
-    
-    <!-- Scramble library, https://github.com/cubing/jsss -->
-    <script type="text/javascript" src="scripts/scramble-lib/scramble_222.js"></script>
-    <script type="text/javascript" src="scripts/scramble-lib/scramble_333.js"></script>
-    <script type="text/javascript" src="scripts/scramble-lib/scramble_NNN.js"></script>
-    <script type="text/javascript" src="scripts/scramble-lib/scramble_minx.js"></script>
-    <script type="text/javascript" src="scripts/scramble-lib/scramble_pyram.js"></script>
-    <script type="text/javascript" src="scripts/scramble-lib/scramble_sq1.js"></script>
 
-    <!-- Duncan Scripts -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
     <script type="text/javascript" src="scripts/duncan.js"></script>
-    
-    <!-- Putting them all together myself, for my needs -->
-    <script type="text/javascript" src="scripts/scramble.js"></script>
-    
+
+
+
     <!-- Website- and timer-specific js files (I did these! ^.^) -->
-   
+
     <script type="text/javascript" src="scripts/settings.js"></script>
     <script type="text/javascript" src="scripts/timer.js"></script>
     <script type="text/javascript" src="scripts/times.js"></script>
@@ -636,7 +610,7 @@
 
     <script type="text/javascript" src="scripts/ui.js"></script>
 
-    
+
 </body>
 
 </html>

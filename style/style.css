@@ -11,1030 +11,1011 @@ Import Google Fonts:
 
 */
 
-@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Roboto:300,500|VT323|Iceland|Iceberg');
+@import url("https://fonts.googleapis.com/css?family=Anonymous+Pro|Roboto:300,500|VT323|Iceland|Iceberg");
 
-html, body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 body {
-    font-family: "Anonymous Pro", sans-serif;
-    color: #444444;
-    background-color: #cccccc;
-    margin-top: 50px;
-    height: calc(100% - 50px);
-    min-width: 800px;
+  font-family: "Anonymous Pro", sans-serif;
+  color: #444444;
+  background-color: #cccccc;
+  margin-top: 50px;
+  height: calc(100% - 50px);
+  min-width: 800px;
 }
 
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 h1 {
-    font-size: 24pt;
-    padding-top: 0;
-    margin-top: 0;
+  font-size: 24pt;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #3498db;
-    cursor: pointer;
-    
-    transition: color .3s ease;
-    -webkit-transition: color .3s ease;
-    -moz-transition: color .3s ease;
-    -o-transition: color .3s ease;
+  text-decoration: none;
+  font-weight: 500;
+  color: #3498db;
+  cursor: pointer;
+
+  transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
 }
 
 a:visited {
-    color: #9b59b6;
+  color: #9b59b6;
 }
 a:hover {
-    color: rgba(52, 152, 219, 0.6);
+  color: rgba(52, 152, 219, 0.6);
 }
 a:visited:hover {
-    color: rgba(155, 89, 182, 0.6);
+  color: rgba(155, 89, 182, 0.6);
 }
 
 #settingsIcon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #infoIcon {
-    position: absolute;
-    top: 13px;
-    right: 50px;
+  position: absolute;
+  top: 13px;
+  right: 50px;
 }
 
 #importIcon {
-    position: absolute;
-    top: 15px;
-    right: 140px;
+  position: absolute;
+  top: 15px;
+  right: 140px;
 }
 
 #exportIcon {
-    position: absolute;
-    top: 15px;
-    right: 170px;
+  position: absolute;
+  top: 15px;
+  right: 170px;
 }
 
 #addTimesIcon {
-    position: absolute;
-    top: 16px;
-    right: 110px;
+  position: absolute;
+  top: 16px;
+  right: 110px;
 }
 
 img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
-
 #timeContainer {
-    width: 100%;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #tabsDiv {
-    margin: auto;
-    margin-bottom: 30px;
-    font-family: "Roboto";
-    font-size: 12pt;
+  margin: auto;
+  margin-bottom: 30px;
+  font-family: "Roboto";
+  font-size: 12pt;
 }
 
 table.tabs {
-    border-collapse: separate;
-    border-spacing: 0px;
+  border-collapse: separate;
+  border-spacing: 0px;
 }
 
 table.tabs td {
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    cursor: pointer;
-    font-weight: 300;
-    
-    border-bottom: 2px solid #bbbbbb;
-    
-    color: #666666;
-    
-    transition: color .5s ease, border-color .5s ease;
-    -webkit-transition: color .5s ease, border-color .5s ease;
-    -o-transition: color .5s ease, border-color .5s ease;
-    -moz-transition: color .5s ease, border-color .5s ease;
-    
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  font-weight: 300;
+
+  border-bottom: 2px solid #bbbbbb;
+
+  color: #666666;
+
+  transition: color 0.5s ease, border-color 0.5s ease;
+  -webkit-transition: color 0.5s ease, border-color 0.5s ease;
+  -o-transition: color 0.5s ease, border-color 0.5s ease;
+  -moz-transition: color 0.5s ease, border-color 0.5s ease;
 }
 
 table.tabs td.active {
-    color: #3498db;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 4px;
-    font-weight: 500;
+  color: #3498db;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 4px;
+  font-weight: 500;
 }
 
 table.tabs td:hover {
-    color: #3498db;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 4px;
+  color: #3498db;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 4px;
 }
 
 /* Duncan Added Stuff */
 .duncanHeaders {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .currentHeader {
-    display: flex;
-    align-items: center;
-    border: solid black 1px;
-    height: 30px;
-    font-size: 20px;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    background-color: #444444;
-    color: white;
-    cursor: pointer;
-    transition: color .5s ease, border-color .5s ease;
-    display: none;
-
+  display: flex;
+  align-items: center;
+  border: solid black 1px;
+  height: 30px;
+  font-size: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  background-color: #444444;
+  color: white;
+  cursor: pointer;
+  transition: color 0.5s ease, border-color 0.5s ease;
+  display: none;
 }
 
 .currentHeader:hover {
-    color: #3498db;
+  color: #3498db;
 }
 
 .fa-chevron-circle-down {
-    margin: 10px;
+  margin: 10px;
 }
 
-.fa-spinner {
-    font-size: 50px;
-    margin-top: 30px;
-    animation: spin 1.5s linear infinite;
-    display: none;
+.loading-tabs {
+  display: flex;
+  align-items: center;
+  font-size: 15pt;
+}
+
+#sheets-spinner {
+  font-size: 50px;
+  margin-top: 30px;
+  animation: spin 1.5s linear infinite;
+  display: none;
+}
+
+#tabs-spinner {
+  font-size: 40px;
+  margin-left: 10px;
+  animation: spin 1.5s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .duncanHeaders ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 ul li {
-    cursor: pointer;
-    font-size: 16pt;
-    transition: color .3s ease, border-color .5s ease;
+  cursor: pointer;
+  font-size: 16pt;
+  transition: color 0.3s ease, border-color 0.5s ease;
 }
 
 ul li:hover {
-    color: #3498db;
-    text-decoration: underline;
-    
+  color: #3498db;
+  text-decoration: underline;
 }
 
 #scrambleDiv {
-    text-align: center;
-    margin-left: 150px;
-    margin-right:150px;
-    height: 72px;
+  text-align: center;
+  margin-left: 150px;
+  margin-right: 150px;
+  height: 72px;
 }
 
 #scramble {
-    font-family: monospace;
-    font-size: 12pt;
+  font-family: monospace;
+  font-size: 40pt;
 }
 
 #timeDiv {
-    width: 100%;
-    height: 100px;
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #time {
-    font-size: 72px;
-    letter-spacing: 10px;
+  font-size: 72px;
+  letter-spacing: 10px;
 }
 
-
-
-
-
 #bottomContentContainer {
-    width: calc(100% - 100px);
-    height: calc(100% - 386px);
-    margin-right: 50px;
-    margin-left: 50px;
-    overflow: hidden;
-    text-align: center;
+  width: calc(100% - 100px);
+  height: calc(100% - 386px);
+  margin-right: 50px;
+  margin-left: 50px;
+  overflow: hidden;
+  text-align: center;
 }
 
 #innerBottomContent {
-    height: 100%;
-    display: inline-block;
-    margin: auto;
+  height: 100%;
+  display: inline-block;
+  margin: auto;
 }
 
-
-
 #timesDiv {
-    width: 330px;
-    height: 100%;
-    float: left;
-    overflow: hidden;
-    border-radius: 2px;
+  width: 330px;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  border-radius: 2px;
 }
 
 #innerTimesDiv {
-
-    overflow: auto;
-    width: 100%;
-    height: 100%;
-    background-color: #dddddd;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #dddddd;
 }
 
 #timesTable {
-    margin: auto;
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-    overflow: scroll;
-    
-    font-family: "Roboto";
-    font-size: 11pt;
-    font-weight: 300;
-    letter-spacing: 1px;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  overflow: scroll;
+
+  font-family: "Roboto";
+  font-size: 11pt;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 #timesTable tr {
-    width: 300px;
+  width: 300px;
 }
 
 #timesTable td {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #timesTable td.num {
-    text-align: left;
-    width: 50px;
-    color: #777777;
+  text-align: left;
+  width: 50px;
+  color: #777777;
 }
 
 #timesTable td.time {
-    text-align: right;
-    font-weight: 500;
-    cursor: pointer;
+  text-align: right;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #timesTable td.time:hover {
-    background-color: #cccccc;
+  background-color: #cccccc;
 }
 
 #timesTable td.penalty {
-    color: #999999;
-    font-weight: 500;
-    cursor: pointer;
+  color: #999999;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #timesTable td.penalty:hover {
-    color: #9b59b6;
+  color: #9b59b6;
 }
 
 #timesTable td.penalty.true {
-    color: #9b59b6;
+  color: #9b59b6;
 }
 
 #timesTable td.dnf {
-    color: #999999;
-    font-weight: 500;
-    cursor: pointer;
+  color: #999999;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #timesTable td.dnf:hover {
-    color: #e67e22;
+  color: #e67e22;
 }
 
 #timesTable td.dnf.true {
-    color: #e67e22;
+  color: #e67e22;
 }
 
 #timesTable td.delete {
-    font-weight: 500;
-    color: #c0392b;
-    cursor: pointer;
+  font-weight: 500;
+  color: #c0392b;
+  cursor: pointer;
 }
 
 #timesTable td.delete:hover {
-    color: #e74c3c;
+  color: #e74c3c;
 }
 
 #statsDiv {
-    width: 270px;
-    float: left;
-    overflow: hidden;
-    background-color: #dddddd;
-    border-radius: 2px;
-    margin-left: 50px;
+  width: 270px;
+  float: left;
+  overflow: hidden;
+  background-color: #dddddd;
+  border-radius: 2px;
+  margin-left: 50px;
 }
 
 #statsTable {
-    margin: auto;
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-    
-    font-family: "Roboto";
-    font-size: 11pt;
-    font-weight: 300;
-    letter-spacing: 1px;
-    
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+
+  font-family: "Roboto";
+  font-size: 11pt;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 #statsTable td.label {
-    font-weight: 300;
-    text-align: left;
-    width: 120px;
+  font-weight: 300;
+  text-align: left;
+  width: 120px;
 }
 
 #statsTable td.value {
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
 }
 
 #statsTable td.value:hover {
-    background-color: #cccccc;
+  background-color: #cccccc;
 }
 
 #statsTable td.special {
-    cursor: inherit;
+  cursor: inherit;
 }
 
 #statsTable td.special:hover {
-    background-color: inherit;
-    
+  background-color: inherit;
 }
 
 #statsTable tr.gap {
-    height: 15px;
+  height: 15px;
 }
 
-
-
-
 .modalWrapper {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: transparent;
-    
-    /* To show modal, set display to "flex" */
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: transparent;
+
+  /* To show modal, set display to "flex" */
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
 }
 
 .modal {
-    background-color: #dddddd;
-    border-radius: 2px;
-    padding: 20px;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 2px 2px 8px #111111;
-    opacity: 0;
-    
-    transition: transform .3s ease-out, opacity .3s;
-    -webkit-transition: transform .3s ease-out, opacity .3s;
-    -moz-transition: transform .3s ease-out, opacity .3s;
-    -o-transition: transform .3s ease-out, opacity .3s;
-    -ms-transition: transform .3s ease-out, opacity .3s;
-    
-    transform: translateY(-60px);
+  background-color: #dddddd;
+  border-radius: 2px;
+  padding: 20px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 8px #111111;
+  opacity: 0;
+
+  transition: transform 0.3s ease-out, opacity 0.3s;
+  -webkit-transition: transform 0.3s ease-out, opacity 0.3s;
+  -moz-transition: transform 0.3s ease-out, opacity 0.3s;
+  -o-transition: transform 0.3s ease-out, opacity 0.3s;
+  -ms-transition: transform 0.3s ease-out, opacity 0.3s;
+
+  transform: translateY(-60px);
 }
 
-
-
 #addManuallyModal {
-    font-family: "Roboto";
-    font-weight: 300;
-    width: 500px;
-    height: 300px;
+  font-family: "Roboto";
+  font-weight: 300;
+  width: 500px;
+  height: 300px;
 }
 
 #addTimesTabs {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
 }
 
 #addTimesTitle {
-    font-size: 32pt;
-    font-weight: 500;
+  font-size: 32pt;
+  font-weight: 500;
 }
 
-#timeInput, #scrambleInput {
-    font-family: "Roboto";
-    font-size: 12pt;
-    font-weight: 300;
+#timeInput,
+#scrambleInput {
+  font-family: "Roboto";
+  font-size: 12pt;
+  font-weight: 300;
 }
 
 #timeInput {
-    width: 100px;
+  width: 100px;
 }
 
 #scrambleInput {
-    width: 350px;
+  width: 350px;
 }
 
 #addTimeSuccess {
-    font-weight: 500;
-    color: rgba(231, 76, 60, 1.0);
-    display: none;
+  font-weight: 500;
+  color: rgba(231, 76, 60, 1);
+  display: none;
 }
 
-#addTimeButton, #addTimesButton {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(46, 204, 113, 1.0);
-    color: #eeeeee;
+#addTimeButton,
+#addTimesButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(46, 204, 113, 1);
+  color: #eeeeee;
 }
 
-#addTimeButton:hover, #addTimesButton:hover {
-    background-color: rgba(46, 204, 113, 0.6)
+#addTimeButton:hover,
+#addTimesButton:hover {
+  background-color: rgba(46, 204, 113, 0.6);
 }
 
 #addManyDiv {
-    display: none;
+  display: none;
 }
 
 #addTimesTextarea {
-    resize: none;
-    padding: 10px;
-    font-family: "Roboto";
-    font-weight: 300;
-    border: none;
-    border-bottom: 2px solid #bbbbbb;
-    background-color: transparent;
-    font-size: 12pt;
-    width: 478px;
-    height: 20px;
-    margin-bottom: 1px;
-    
-    transition: border .3s ease;
-    -webkit-transition: border .3s ease;
-    -moz-transition: border .3s ease;
-    -o-transition: border .3s ease;
-    -ms-transition: border .3s ease;
+  resize: none;
+  padding: 10px;
+  font-family: "Roboto";
+  font-weight: 300;
+  border: none;
+  border-bottom: 2px solid #bbbbbb;
+  background-color: transparent;
+  font-size: 12pt;
+  width: 478px;
+  height: 20px;
+  margin-bottom: 1px;
+
+  transition: border 0.3s ease;
+  -webkit-transition: border 0.3s ease;
+  -moz-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  -ms-transition: border 0.3s ease;
 }
 
 #addTimesTextarea:focus {
-    outline: none;
-    border-bottom: 2px solid #3498db;
-    margin-bottom: 0px;
+  outline: none;
+  border-bottom: 2px solid #3498db;
+  margin-bottom: 0px;
 }
 
 #addTimesSuccess {
-    display: none;
-    font-weight: 500;
+  display: none;
+  font-weight: 500;
 }
 
-
-
 #timeInfo {
-    width: 500px;
-    height: 300px;
-    font-family: "Roboto";
+  width: 500px;
+  height: 300px;
+  font-family: "Roboto";
 }
 
 .closeModal {
-    text-align: right;
-    float: right;
-    color: #c0392b;
-    font-family: "Roboto";
-    font-weight: 500;
-    cursor: pointer;
+  text-align: right;
+  float: right;
+  color: #c0392b;
+  font-family: "Roboto";
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .closeModal:hover {
-    color: #e74c3c;
+  color: #e74c3c;
 }
 
-
-
-#exportModal, #importModal {
-    width: 500px;
-    height: 300px;
-    font-family: "Roboto";
-    font-weight: 300;
+#exportModal,
+#importModal {
+  width: 500px;
+  height: 300px;
+  font-family: "Roboto";
+  font-weight: 300;
 }
 
-#exportTitle, #importTitle {
-    font-size: 32pt;
-    font-weight: 500;
-    font-family: "Roboto";
+#exportTitle,
+#importTitle {
+  font-size: 32pt;
+  font-weight: 500;
+  font-family: "Roboto";
 }
 
 textarea.ie {
-    font-family: "Anonymous Pro", monospace;
-    font-weight: 300;
-    font-size: 12pt;
-    background-color: #dddddd;
-    color: #444444;
-    resize: none;
-    width: 480px;
-    height: 140px;
-    padding: 10px;
-    
-    border: none;
-    border-bottom: 2px solid #bbbbbb;
-    transition: border .3s ease;
-    -webkit-transition: border .3s ease;
-    -o-transition: border .3s ease;
-    -ms-transition: border .3s ease;
-    -moz-transition: border .3s ease;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 300;
+  font-size: 12pt;
+  background-color: #dddddd;
+  color: #444444;
+  resize: none;
+  width: 480px;
+  height: 140px;
+  padding: 10px;
+
+  border: none;
+  border-bottom: 2px solid #bbbbbb;
+  transition: border 0.3s ease;
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  -ms-transition: border 0.3s ease;
+  -moz-transition: border 0.3s ease;
 }
 
 textarea.ie:focus {
-    outline: none;
-    border-bottom: 2px solid #3498db;
+  outline: none;
+  border-bottom: 2px solid #3498db;
 }
 
 #importTextarea {
-    height: 110px;
+  height: 110px;
 }
 
 #importButton {
-    background-color: #3498db;
-    position: absolute;
-    color: #eeeeee;
-    font-size: 10pt;
-    font-family: "Roboto";
-    right: 20px;
-    bottom: 20px;
+  background-color: #3498db;
+  position: absolute;
+  color: #eeeeee;
+  font-size: 10pt;
+  font-family: "Roboto";
+  right: 20px;
+  bottom: 20px;
 }
 
 #importError {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 #preserveLabel {
-    position: absolute;
-    right: 180px;
-    bottom: 29px;
+  position: absolute;
+  right: 180px;
+  bottom: 29px;
 }
 
 #preserveToggle {
-    position: absolute;
-    right: 140px;
-    bottom: 32px;
+  position: absolute;
+  right: 140px;
+  bottom: 32px;
 }
 
 #importButton:hover {
-    background-color: rgba(52, 152, 219, 0.6);
+  background-color: rgba(52, 152, 219, 0.6);
 }
 
-
-
 #timeInfoValue {
-    font-size: 36pt;
-    font-weight: 500;
-    letter-spacing: 10px;
+  font-size: 36pt;
+  font-weight: 500;
+  letter-spacing: 10px;
 }
 
 #timeInfoMilliseconds {
-    letter-spacing: 1px;
-    font-weight: 300;
+  letter-spacing: 1px;
+  font-weight: 300;
 }
 
 #timeInfoIndex {
-    letter-spacing: 1px;
-    font-weight: 300;
-    padding-left: 50px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  padding-left: 50px;
 }
 
 #timeInfoScrambleLabel {
-    font-family: "Roboto";
-    font-size: 16pt;
+  font-family: "Roboto";
+  font-size: 16pt;
 }
 
 #timeInfoScramble {
-    font-family: monospace;
-    font-size: 12pt;
+  font-family: monospace;
+  font-size: 12pt;
 }
 
 #avgInfo {
-    width: 300px;
-    height: 180px;
-    font-family: "Roboto";
+  width: 300px;
+  height: 180px;
+  font-family: "Roboto";
 }
 
 #avgInfoValue {
-    font-size: 36pt;
-    font-weight: 500;
-    letter-spacing: 10px;
+  font-size: 36pt;
+  font-weight: 500;
+  letter-spacing: 10px;
 }
 
-#avgTimesList, #timeIndexes {
-    font-weight: 300;
+#avgTimesList,
+#timeIndexes {
+  font-weight: 300;
 }
-
-
 
 #settings {
-    width: 400px;
-    height: 315px;
-    font-family: "Roboto";
+  width: 400px;
+  height: 315px;
+  font-family: "Roboto";
 }
 
 #settingsTabsTable {
-    text-align: center;
-    margin: auto;
-    margin-bottom: 30px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 30px;
 }
 
 span.major {
-    font-weight: 500;
-    font-size: 12pt;
+  font-weight: 500;
+  font-size: 12pt;
 }
 span.minor {
-    font-weight: 300;
-    font-size: 10pt;
+  font-weight: 300;
+  font-size: 10pt;
 }
 
 #inspectionSettings {
-    display: inline-block;
+  display: inline-block;
 }
 
 #inspectionToggle {
-    margin-left: 35px;
-    margin-right: 25px;
+  margin-left: 35px;
+  margin-right: 25px;
 }
 
 #inspectionSeconds {
-    width: 44px;
-    margin-left: 20px;
-    margin-right: 5px;
+  width: 44px;
+  margin-left: 20px;
+  margin-right: 5px;
 }
 
-
-
 #holdDelayToggle {
-    margin-left: 70px;
-    margin-right: 25px;
+  margin-left: 70px;
+  margin-right: 25px;
 }
 
 #holdDelaySeconds {
-    width: 44px;
-    margin-left: 20px;
-    margin-right: 5px;
+  width: 44px;
+  margin-left: 20px;
+  margin-right: 5px;
 }
 
 #hideTimerToggle {
-    margin-left: 13px;
+  margin-left: 13px;
 }
 
 #digitsSettings {
-    position: relative;
-
+  position: relative;
 }
 
 #digitsButtonsWrapper {
-    display: inline-block;
-    box-shadow: 0px 0px 6px #aaaaaa;
-    border-radius: 2px;
-    margin-left: 25px;
-    position: absolute;
-    top: -2px;
+  display: inline-block;
+  box-shadow: 0px 0px 6px #aaaaaa;
+  border-radius: 2px;
+  margin-left: 25px;
+  position: absolute;
+  top: -2px;
 }
 
 .digit {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0;
-    display: block;
-    float: left;
-    box-shadow: none;
-    background-color: #dddddd;
-    font-family: "Roboto";
-    z-index: 1;
-    
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
+  display: block;
+  float: left;
+  box-shadow: none;
+  background-color: #dddddd;
+  font-family: "Roboto";
+  z-index: 1;
 }
 
-.digit.selected, .digit:hover {
-    background-color: rgb(52, 152, 219);
-    color: #eeeeee;
+.digit.selected,
+.digit:hover {
+  background-color: rgb(52, 152, 219);
+  color: #eeeeee;
 }
 
 #digits2 {
-    border-radius: 2px 0px 0px 2px;
-    border-right: 1px solid #dddddd;
+  border-radius: 2px 0px 0px 2px;
+  border-right: 1px solid #dddddd;
 }
 
 #digits3 {
-    border-radius: 0px 2px 2px 0px;
+  border-radius: 0px 2px 2px 0px;
 }
 
-#visualSettingsWrapper, #eventSettingsWrapper {
-    display: none;
+#visualSettingsWrapper,
+#eventSettingsWrapper {
+  display: none;
 }
 
 #fontLabel {
-    text-align: center;
+  text-align: center;
 }
 
 button.font {
-    margin-right: 16px;
-    color: #eeeeee;
+  margin-right: 16px;
+  color: #eeeeee;
 }
 
 button.font.last {
-    margin-right: 0;
+  margin-right: 0;
 }
 
-
-
 #font1 {
-    background-color: #e74c3c;
+  background-color: #e74c3c;
 }
 
 #font1:hover {
-    background-color: rgba(231, 76, 60, 0.6)
+  background-color: rgba(231, 76, 60, 0.6);
 }
 
 #font2 {
-    background-color: #f1c40f;
+  background-color: #f1c40f;
 }
 
 #font2:hover {
-    background-color: rgba(241, 196, 15, 0.6);
+  background-color: rgba(241, 196, 15, 0.6);
 }
 
 #font3 {
-    background-color: #2ecc71;
+  background-color: #2ecc71;
 }
 
 #font3:hover {
-    background-color: rgba(46, 204, 113, 0.6);
+  background-color: rgba(46, 204, 113, 0.6);
 }
 
 #font4 {
-    background-color: #3498db;
+  background-color: #3498db;
 }
 
 #font4:hover {
-    background-color: rgba(52, 152, 219, 0.6);
+  background-color: rgba(52, 152, 219, 0.6);
 }
 
-
-
-#displayFont{
-    font-family: "Anonymous Pro";
-    text-align: center;
-    font-size: 24pt;
+#displayFont {
+  font-family: "Anonymous Pro";
+  text-align: center;
+  font-size: 24pt;
 }
 
-
-
-#clearTimes, #clearTimesConfirm {
-    text-align: center;
-    font-weight: 300;
+#clearTimes,
+#clearTimesConfirm {
+  text-align: center;
+  font-weight: 300;
 }
 
 #clearTimesConfirm {
-    transform: translateY(200px);
-    
-    transition: transform .3s ease-out;
-    -webkit-transition: transform .3s ease-out;
-    -moz-transition: transform .3s ease-out;
-    -o-transition: transform .3s ease-out;
-    -ms-transition: transform .3s ease-out;
+  transform: translateY(200px);
+
+  transition: transform 0.3s ease-out;
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
 }
 
 #eventSettingsWrapper button {
-    color: #eeeeee;
+  color: #eeeeee;
 }
 
 #clearTimesButton {
-    background-color: rgba(231, 76, 60, 1.0);
+  background-color: rgba(231, 76, 60, 1);
 }
 
 #clearTimesButton:hover {
-    background-color: rgba(231, 76, 60, 0.6);
+  background-color: rgba(231, 76, 60, 0.6);
 }
 
 #clearConfirmButton {
-    background-color: rgba(46, 204, 113, 1.0);
+  background-color: rgba(46, 204, 113, 1);
 }
 
 #clearConfirmButton:hover {
-    background-color: rgba(46, 204, 113, 0.6);
+  background-color: rgba(46, 204, 113, 0.6);
 }
 
 #clearCancelButton {
-    background-color: rgba(231, 76, 60, 1.0);
+  background-color: rgba(231, 76, 60, 1);
 }
 
 #clearCancelButton:hover {
-    background-color: rgba(231, 76, 60, 0.6);
+  background-color: rgba(231, 76, 60, 0.6);
 }
 
-
-
-
 #settingsSave {
-    font-size: 10pt;
-    color: #eeeeee;
-    background-color: #2ecc71;
-    
-    font-family: "Roboto";
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+  font-size: 10pt;
+  color: #eeeeee;
+  background-color: #2ecc71;
+
+  font-family: "Roboto";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 #settingsSave:hover {
-    background-color: rgba(46, 204, 113, 0.6);
+  background-color: rgba(46, 204, 113, 0.6);
 }
 
-
-
 button {
-    cursor: pointer;
-    border-radius: 2px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: none;
-    box-shadow: 0px 0px 6px #aaaaaa;
-    font-size: 10pt;
-    color: #444444;
-    
-    font-family: "Roboto";
-    font-weight: 500;
-    background-color: transparent;
-    
-    transition: background-color .3s ease, box-shadow .3s ease;
-    -webkit-transition: background-color .3s ease, box-shadow .3s ease;
-    -moz-transition: background-color .3s ease, box-shadow .3s ease;
-    -o-transition: background-color .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+  border-radius: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  box-shadow: 0px 0px 6px #aaaaaa;
+  font-size: 10pt;
+  color: #444444;
+
+  font-family: "Roboto";
+  font-weight: 500;
+  background-color: transparent;
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  -moz-transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  -o-transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:active {
-    box-shadow: 0px 2px 10px #999999;
+  box-shadow: 0px 2px 10px #999999;
 }
 
-input[type=text] {
-    font-size: 10pt;
-    border: none;
-    background-color: transparent;
-    padding: 5px;
-    border-bottom: 1px solid #bbbbbb;
-    margin-bottom: 1px;
-    
-    transition: border-color .3s ease;
-    -webkit-transition: border-color .3s ease;
-    -moz-transition: border-color .3s ease;
-    -o-transition: border-color .3s ease;
+input[type="text"] {
+  font-size: 10pt;
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  border-bottom: 1px solid #bbbbbb;
+  margin-bottom: 1px;
+
+  transition: border-color 0.3s ease;
+  -webkit-transition: border-color 0.3s ease;
+  -moz-transition: border-color 0.3s ease;
+  -o-transition: border-color 0.3s ease;
 }
 
-input[type=text]:focus {
-    border-bottom: 2px solid #3498db;
-    margin-bottom: 0;
+input[type="text"]:focus {
+  border-bottom: 2px solid #3498db;
+  margin-bottom: 0;
 }
-
-
 
 /* The switch around slide */
 .switch {
-    position: relative;
-    display: inline-block;
-    margin-left: 5px;
-    width: 34px;
-    height: 16px;
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  width: 34px;
+  height: 16px;
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input {
+  display: none;
+}
 
 /* The slider */
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 3px;
-    left: 3px;
-    right: -3px;
-    bottom: -3px;
-    background-color: #bbbbbb;
-    
-    transition: .2s ease;
-    -webkit-transition: .2s ease;
-    -moz-transition: .2s ease;
-    -o-transition: .2s ease;
-    
-    border-radius: 8px;
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 3px;
+  right: -3px;
+  bottom: -3px;
+  background-color: #bbbbbb;
+
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+
+  border-radius: 8px;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    top: -3px;
-    left: -3px;
-    height: 22px;
-    width: 22px;
-    border-radius: 50%;
+  position: absolute;
+  content: "";
+  top: -3px;
+  left: -3px;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
 
-    box-shadow: 0px 0px 5px #aaaaaa;
-    background-color: #dddddd;
-    
-    transition: .2s ease;
-    -webkit-transition: .2s ease;
-    -moz-transition: .2s ease;
-    -o-transition: .2s ease;
+  box-shadow: 0px 0px 5px #aaaaaa;
+  background-color: #dddddd;
+
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }
 
 input:checked + .slider {
-    background-color: rgba(52, 152, 219, 0.4);
+  background-color: rgba(52, 152, 219, 0.4);
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(18px);
-    -moz-transform: translateX(18px);
-    -o-transform: translateX(18px);
-    transform: translateX(18px);
-    background-color: #3498db;
-    box-shadow: none;
+  -webkit-transform: translateX(18px);
+  -moz-transform: translateX(18px);
+  -o-transform: translateX(18px);
+  transform: translateX(18px);
+  background-color: #3498db;
+  box-shadow: none;
 }
 
-
-
 #about {
-    width: 60%;
-    height: 60%;
-    margin: auto;
-    text-align: center;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  text-align: center;
 }
 
 #infoTabsDiv {
-    display: inline-block;
-    font-size: 12pt;
-    font-family: "Roboto";
-    font-weight: 300;
+  display: inline-block;
+  font-size: 12pt;
+  font-family: "Roboto";
+  font-weight: 300;
 }
 
 #infoScroll {
-    overflow-y: auto;
-    height: calc(100% - 40px);
-    padding-right: 20px;
-    width: 100%;
+  overflow-y: auto;
+  height: calc(100% - 40px);
+  padding-right: 20px;
+  width: 100%;
 }
-
-
 
 .infoContent {
-    overflow: auto;
-    text-align: left;
-    font-family: "Roboto";
-    font-weight: 300;
-    display: none;
+  overflow: auto;
+  text-align: left;
+  font-family: "Roboto";
+  font-weight: 300;
+  display: none;
 }
 
-#howTo { display: block; }
+#howTo {
+  display: block;
+}

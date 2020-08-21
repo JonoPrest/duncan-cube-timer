@@ -22,6 +22,9 @@ var inspectionInterval;
 // Defined as function to rebind event handlers and avoid
 // Rapid re-calling of event function when key is held down
 function onkeydownFunction(e) { 
+    if (!headerChosen) {
+        return false
+    }
     
     this.onkeydown = null;
     

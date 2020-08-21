@@ -342,7 +342,6 @@ window.onload = function() {
         }
     }
     
-    changeEvent(threeByThree);
     
 }
 

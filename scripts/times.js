@@ -126,13 +126,6 @@ function Time(milliseconds, scramble, element) {
 // Works with array of times (milliseconds) or Time() objects
 Array.prototype.average = function(n, startIndex = this.length-1) {
     
-    // If event is a mo3 event, do mo3 instead of ao5
-    if (n == 5 && (currentEvent == sixBySix ||
-        currentEvent == sevenBySeven ||
-        currentEvent == blindfolded)) {
-        
-        return this.mo3(startIndex);
-    }
     
     // If there aren't enough elements for ao5/12 between 
     // startIndex and first element, or if it's trying
@@ -318,7 +311,7 @@ function addTime(time, scramble=currentScramble.scramble_string||currentScramble
     if (time < currentEvent.best.time) { currentEvent.best = thisTime; }
     
     // Update scramble var and element text
-    if (u===true && currentEvent !== duncan) { updateScramble(); }
+  
     
     updateAverageDisplays();
     
