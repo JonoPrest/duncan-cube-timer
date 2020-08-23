@@ -6,6 +6,7 @@ const loadingTabs = document.getElementById("loading-tabs");
 const spinner = document.getElementById("sheets-spinner");
 const scramble = document.getElementById("scramble");
 
+
 let eventElements = [];
 let events = [];
 
@@ -112,6 +113,7 @@ function setTabHeaders(sheetIndex) {
 //When header id chosen, updates DOM and runs setScramble Values
 function chooseHeader(e) {
   headerChosen = true;
+  startButton.hidden = false;
   duncanHeadersList.hidden = true;
   headerChoice = e.target.innerText;
   headerId = e.target.id;
@@ -175,6 +177,7 @@ function scrambleHeaderValues() {
 // Choose a different header from the list
 function resetHeader() {
   currentHeader.style.display = "none";
+  startButton.hidden = true;
   headerChosen = false;
   duncanHeadersList.hidden = false;
   headerChoice = "";
@@ -209,3 +212,8 @@ function updateScramble() {
 window.addEventListener("DOMContentLoaded", init);
 duncanHeadersList.addEventListener("click", chooseHeader);
 currentHeader.addEventListener("click", resetHeader);
+window.addEventListener('keydown', function(e) {
+  if(e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+});
