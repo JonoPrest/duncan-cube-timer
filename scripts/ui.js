@@ -161,7 +161,7 @@ function updateTimerElement(formattedTime) {
 
 function stopCubeTimer() {
   if (randomScrambleValue.answer !== "") {
-    scramble.textContent = `${randomScrambleValue.value} - Ans: ${randomScrambleValue.answer}`;
+    scramble.textContent = `${randomScrambleValue.value} - ${randomScrambleValue.answer}`;
   }
   
   // Stop timer object

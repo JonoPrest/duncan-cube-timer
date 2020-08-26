@@ -182,11 +182,10 @@ function setDesignationArrayValues() {
 }
 
 function getCommAnswer(rowNumber) {
-  let commAnswer = '';
+  let commAnswer = "";
   googleSheetData[headerId].forEach((item) => {
     if (item.gs$cell.col === "4" && item.gs$cell.row === rowNumber) {
       commAnswer = item.content.$t;
-      
     }
   });
 
@@ -222,7 +221,7 @@ function duncanScramble() {
   if (headerChosen) {
     scrambleHeaderValues();
   }
-    return randomScrambleValue.value;
+  return randomScrambleValue.value;
 }
 
 //triggers on the counter
@@ -277,27 +276,41 @@ function exportTableToCSV(filename) {
 
   // Download CSV file
   downloadCSV(csv.join("\n"), filename);
-}
+} */
 
 function emailResults(e) {
   e.preventDefault();
   const date = new Date();
   const year = date.getFullYear();
-  const month = date.getMonth()+1;
-  const day = date.getDate()
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
- 
-  exportTableToCSV();
+  let emailRowsArray = [];
+  const timesTableBody = document.getElementById("timesTableBody");
+  const tableRowsArray = timesTableBody.children;
+  for (let i = 0; i < tableRowsArray.length; i++) {
+    const rowArray = Array.from(tableRowsArray[i].children);
+    let filteredArray = [];
+    rowArray.forEach((col) => {
+      if (col.className !== "num" && col.className !== "delete") {
+        filteredArray.push(col.innerText);
+      }
+    });
+    emailRowsArray.push(filteredArray.join(","));
+  }
+
+  const emailBody = emailRowsArray.join("%0A");
+  console.log(emailBody);
 
   let emailAddress = e.target[0].value;
-  window.open(`mailto:${emailAddress}?subject=${year}/${month}/${day}: 3Style Trainer Session Times`, '_blank');
-} */
+  window.open(`mailto:${emailAddress}?subject=${year}/${month}/${day}:%203Style%20Trainer%20Session&body=${emailBody}`, '_blank');
+}
 
 //Event listeners for loading google data and clicking on headers
 window.addEventListener("DOMContentLoaded", init);
 duncanHeadersList.addEventListener("click", chooseHeader);
 currentHeader.addEventListener("click", resetHeader);
-// email.addEventListener("submit", emailResults);
+email.addEventListener("submit", emailResults);
 window.addEventListener("keydown", function (e) {
   if (e.keyCode == 32 && e.target == document.body) {
     e.preventDefault();
