@@ -288,7 +288,7 @@ ul li:hover {
   max-width: 800px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin: auto;
 }
 
@@ -384,11 +384,10 @@ ul li:hover {
 
 #statsDiv {
   width: 270px;
-  float: left;
   overflow: hidden;
   background-color: #dddddd;
   border-radius: 2px;
-  margin: 5px;
+  margin: 30px;
 }
 
 #statsTable {

@@ -299,7 +299,7 @@ function emailResults(e) {
     emailRowsArray.push(filteredArray.join(","));
   }
 
-  const emailBody = emailRowsArray.join("%0A");
+  const emailBody = emailRowsArray.join("%0D%0A");
   console.log(emailBody);
 
   let emailAddress = e.target[0].value;
