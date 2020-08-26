@@ -1,4 +1,6 @@
 const eventsTableParent = document.getElementById("eventsParent");
+const bottomContent = document.getElementById('bottomContentContainer')
+const email = document.getElementById("email-form")
 const duncanHeadersList = document.getElementById("duncanHeadersList");
 const currentHeader = document.getElementById("currentHeader");
 const currentHeaderText = document.getElementById("currentHeaderText");
@@ -208,10 +210,70 @@ function updateScramble() {
   }
 }
 
+/*function downloadCSV(csv, filename) {
+  let csvFile;
+  let downloadLink;
+
+  // CSV file
+  csvFile = new Blob([csv], {type: "text/csv"});
+
+  // Download link
+  downloadLink = document.createElement("a");
+
+  // File name
+  downloadLink.download = filename;
+
+  // Create a link to the file
+  downloadLink.href = window.URL.createObjectURL(csvFile);
+
+  // Hide download link
+  downloadLink.style.display = "none";
+
+  // Add the link to DOM
+  document.body.appendChild(downloadLink);
+
+  console.log(downloadLink.href);
+
+  // Click download link
+  downloadLink.click();
+}
+
+function exportTableToCSV(filename) {
+  var csv = [];
+  var rows = bottomContent.querySelectorAll("table tr");
+  
+  for (var i = 0; i < rows.length; i++) {
+      var row = [], cols = rows[i].querySelectorAll("td, th");
+      
+      for (var j = 0; j < cols.length; j++) 
+          row.push(cols[j].innerText);
+      
+      csv.push(row.join(","));        
+  }
+
+  // Download CSV file
+  downloadCSV(csv.join("\n"), filename);
+}
+
+function emailResults(e) {
+  e.preventDefault();
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth()+1;
+  const day = date.getDate()
+
+ 
+  exportTableToCSV();
+
+  let emailAddress = e.target[0].value;
+  window.open(`mailto:${emailAddress}?subject=${year}/${month}/${day}: 3Style Trainer Session Times`, '_blank');
+} */
+
 //Event listeners for loading google data and clicking on headers
 window.addEventListener("DOMContentLoaded", init);
 duncanHeadersList.addEventListener("click", chooseHeader);
 currentHeader.addEventListener("click", resetHeader);
+// email.addEventListener("submit", emailResults);
 window.addEventListener('keydown', function(e) {
   if(e.keyCode == 32 && e.target == document.body) {
     e.preventDefault();
