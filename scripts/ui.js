@@ -23,8 +23,10 @@ var inspectionInterval;
 // Rapid re-calling of event function when key is held down
 function onkeydownFunction(e) {
   if (!headerChosen) {
-    return false;
+    return;
   }
+
+  
 
   this.onkeydown = null;
 
@@ -45,7 +47,7 @@ function onkeydownFunction(e) {
     stopCubeTimer();
     heldDown = false;
   } else {
-    if ((e.target.id === "start-button")) {
+    if (e.target.id === "start-button") {
       heldDown = true;
     } else {
       heldDown = false;
@@ -64,13 +66,14 @@ function keyUp(e) {
   // Rebind onkeydown event - works for all events, not just space
   this.onkeydown = onkeydownFunction;
 
-  
-
   if (e.keyCode != 32 && e.target.id !== "start-button" && justStopped) {
     justStopped = false;
   }
   // If it's not the space bar or timer is disabled, carry on
-  if ((e.keyCode != 32 && e.target.id !== "start-button") || Settings.timerDisabled) {
+  if (
+    (e.keyCode != 32 && e.target.id !== "start-button") ||
+    Settings.timerDisabled
+  ) {
     return true;
   }
 
@@ -84,7 +87,6 @@ function keyUp(e) {
   // If it's not running and it's not just stopped AND heldDown==true
   if (!cubeTimer.isRunning && !justStopped && heldDown) {
     heldDown = false;
-    console.log("start upo")
     // Should we include inspection time?
     if (Settings.inspectionTime) {
       // If inspection has already started, start solve itself
@@ -129,11 +131,17 @@ function keyUp(e) {
 }
 
 function startCubeTimer() {
+  if(currentScrambleArray.length < 1) {
+    scramble.textContent = "Sorry No Data";
+    return
+  }
+  updateScramble();
+  
   // Start timer object
   cubeTimer.start();
-  startButton.style.backgroundColor = "#3498db" 
-  startButton.style.color = "white" 
-  startButton.innerText = "STOP" 
+  startButton.style.backgroundColor = "#3498db";
+  startButton.style.color = "white";
+  startButton.innerText = "STOP";
   // If settings prefers to hide timer while solving
   if (Settings.hideTimer) {
     // Set variable to "Running"
@@ -152,11 +160,15 @@ function updateTimerElement(formattedTime) {
 }
 
 function stopCubeTimer() {
+  if (randomScrambleValue.answer !== "") {
+    scramble.textContent = `${randomScrambleValue.value} - Ans: ${randomScrambleValue.answer}`;
+  }
+  
   // Stop timer object
   cubeTimer.stop();
-  startButton.style.backgroundColor = "#444444" 
-  startButton.style.color = "white" 
-  startButton.innerText = "START" 
+  startButton.style.backgroundColor = "#444444";
+  startButton.style.color = "white";
+  startButton.innerText = "START";
 
   // Stop updating timer element, then update it one last time
   clearInterval(updateTimer);

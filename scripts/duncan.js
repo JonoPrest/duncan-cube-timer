@@ -1,13 +1,12 @@
 const eventsTableParent = document.getElementById("eventsParent");
-const bottomContent = document.getElementById('bottomContentContainer')
-const email = document.getElementById("email-form")
+const bottomContent = document.getElementById("bottomContentContainer");
+const email = document.getElementById("email-form");
 const duncanHeadersList = document.getElementById("duncanHeadersList");
 const currentHeader = document.getElementById("currentHeader");
 const currentHeaderText = document.getElementById("currentHeaderText");
 const loadingTabs = document.getElementById("loading-tabs");
 const spinner = document.getElementById("sheets-spinner");
 const scramble = document.getElementById("scramble");
-
 
 let eventElements = [];
 let events = [];
@@ -118,50 +117,81 @@ function chooseHeader(e) {
   startButton.hidden = false;
   duncanHeadersList.hidden = true;
   headerChoice = e.target.innerText;
-  headerId = e.target.id;
+  headerId = Number(e.target.id);
   currentHeader.style.display = "flex";
   currentHeaderText.innerText = e.target.innerText;
   setScrambleArrayValues();
 }
 
-//Sets array of all values in sheets as well as array filtered by designation 
+//Sets array of all values in sheets as well as array filtered by designation
 function setScrambleArrayValues() {
   let allCommArray = [];
-  let designationArray = [];
 
-  googleSheetData[Number(headerId)].forEach((item) => {
+  googleSheetData[headerId].forEach((item) => {
     if (
       item.gs$cell.col === "1" &&
       item.gs$cell.row !== "1" &&
       item.content.$t !== ""
     ) {
-      allCommArray.push(item.content.$t);
+      const rowNumber = item.gs$cell.row;
+      const cellValue = item.content.$t;
+      const commAnswer = getCommAnswer(rowNumber);
+      const commObject = {
+        row: rowNumber,
+        value: cellValue,
+        answer: commAnswer,
+      };
+      allCommArray.push(commObject);
     }
   });
 
   currentScrambleArray = allCommArray;
 
   if (headerChoice !== headersArray[0]) {
-    let relevantRows = [];
-    googleSheetData[Number(headerId)].forEach((item, i) => {
-      if (item.content.$t === headerChoice) {
-        relevantRows.push(item.gs$cell.row);
-      }
-    });
-    googleSheetData[Number(headerId)].forEach((item) => {
-      if (
-        relevantRows.includes(item.gs$cell.row) &&
-        item.gs$cell.col === "1" &&
-        item.gs$cell.row !== "1" &&
-        item.content.$t !== ""
-      ) {
-        designationArray.push(item.content.$t);
-      }
-    });
-    currentScrambleArray = designationArray;
+    setDesignationArrayValues();
   }
 }
 
+function setDesignationArrayValues() {
+  let designationArray = [];
+  let relevantRows = [];
+  googleSheetData[headerId].forEach((item, i) => {
+    if (item.content.$t === headerChoice) {
+      relevantRows.push(item.gs$cell.row);
+    }
+  });
+  googleSheetData[headerId].forEach((item) => {
+    if (
+      relevantRows.includes(item.gs$cell.row) &&
+      item.gs$cell.col === "1" &&
+      item.gs$cell.row !== "1" &&
+      item.content.$t !== ""
+    ) {
+      const rowNumber = item.gs$cell.row;
+      const cellValue = item.content.$t;
+      const commAnswer = getCommAnswer(rowNumber);
+      const commObject = {
+        row: rowNumber,
+        value: cellValue,
+        answer: commAnswer,
+      };
+      designationArray.push(commObject);
+    }
+  });
+  currentScrambleArray = designationArray;
+}
+
+function getCommAnswer(rowNumber) {
+  let commAnswer = '';
+  googleSheetData[headerId].forEach((item) => {
+    if (item.gs$cell.col === "4" && item.gs$cell.row === rowNumber) {
+      commAnswer = item.content.$t;
+      
+    }
+  });
+
+  return commAnswer;
+}
 
 //Custom scramble event for the data selected. Triggers on duncanScramble function
 function scrambleHeaderValues() {
@@ -187,24 +217,18 @@ function resetHeader() {
   scramble.innerText = "";
 }
 
-
 //Code copied from old scramble.js file
 function duncanScramble() {
   if (headerChosen) {
     scrambleHeaderValues();
   }
-  if (currentScrambleArray.length === 0 && headerChosen) {
-    return "sorry no data";
-  } else {
-    return randomScrambleValue;
-  }
+    return randomScrambleValue.value;
 }
-
 
 //triggers on the counter
 function updateScramble() {
   // Set currentScramble, put scramble on webpage
-  if(headerChosen) {
+  if (headerChosen) {
     currentScramble = currentEvent.scramble();
     scramble.innerHTML = currentScramble;
   }
@@ -274,8 +298,8 @@ window.addEventListener("DOMContentLoaded", init);
 duncanHeadersList.addEventListener("click", chooseHeader);
 currentHeader.addEventListener("click", resetHeader);
 // email.addEventListener("submit", emailResults);
-window.addEventListener('keydown', function(e) {
-  if(e.keyCode == 32 && e.target == document.body) {
+window.addEventListener("keydown", function (e) {
+  if (e.keyCode == 32 && e.target == document.body) {
     e.preventDefault();
   }
 });

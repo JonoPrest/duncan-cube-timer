@@ -84,7 +84,7 @@ function Timer() {
     // Set startedAt to a .getTime() value
     this.startedAt = new Date().getTime();
 
-    updateScramble();
+    
   };
 
   // Timer.stop()
