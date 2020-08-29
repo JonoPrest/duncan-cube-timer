@@ -6,6 +6,9 @@ function Event(name, index, scrambleFunction) {
   this.times = [];
   this.timesToAvg = 0;
 
+  this.comms = [];
+  this.commTimeAvgs = [];
+
   this.scramble = scrambleFunction;
 
   this.element = document.getElementById(name);
@@ -89,6 +92,8 @@ function changeEvent(changeTo) {
 
   // Set currentEvent to changeTo
   currentEvent = changeTo;
+  updateCommMeantTimesTable();
+ 
 
   setTabHeaders(currentEvent.SheetIndex);
 

@@ -298,10 +298,12 @@ ul li:hover {
   max-height: 500px;
   border-radius: 2px;
   margin: 5px;
+  
 }
 
 #innerTimesDiv {
   overflow: auto;
+  overflow-x: hidden;
   width: 100%;
   height: 100%;
   background-color: #dddddd;
@@ -457,10 +459,11 @@ ul li:hover {
   padding: 20px;
   margin: auto;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
   box-shadow: 2px 2px 8px #111111;
   opacity: 0;
-
+  max-height: 500px;
   transition: transform 0.3s ease-out, opacity 0.3s;
   -webkit-transition: transform 0.3s ease-out, opacity 0.3s;
   -moz-transition: transform 0.3s ease-out, opacity 0.3s;
@@ -1043,6 +1046,68 @@ input:checked + .slider:before {
   display: block;
 }
 
-@media only screen and (max-width:600px) {
-  
+.meanTimeTable {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  overflow: scroll;
+
+  font-family: "Roboto";
+  font-size: 12pt;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.meanTimeTable tr {
+  width: 300px;
+}
+
+.meanTimeTable td {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left;
+}
+
+.meanTimeTable td.num {
+  text-align: left;
+  width: 50px;
+  color: #777777;
+}
+
+
+.meanTimeTable td.comm {
+  text-align: left;
+  width: 50px;
+  color: #777777;
+  font-weight: 500;
+}
+
+.meanTimeTable td.time {
+  text-align: right;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.extra-button {
+  background-color: #444444;
+  color: white;
+  transition: color 0.2s ease
+}
+
+#statsDiv button {
+  width: 270px;
+}
+
+
+.extra-button:hover {
+  color: #3498db;
+}
+
+.extra-button:active {
+  background-color:#3498db;
+  color: white;
+}
+
+#email-form {
+  margin: 20px;
 }

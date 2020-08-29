@@ -178,6 +178,7 @@ function stopCubeTimer() {
   justStopped = true;
 
   addTime(cubeTimer.currentTime());
+  meanTimePerComm(currentScramble)
 }
 
 document.getElementById("best").children[1].onclick = function () {
@@ -409,6 +410,7 @@ var settingsIcon = document.getElementById("settingsIcon");
 var infoIcon = document.getElementById("infoIcon");
 var importIcon = document.getElementById("importIcon");
 var exportIcon = document.getElementById("exportIcon");
+const individualMeanTimes = document.getElementById("individualMeanTimes");
 
 settingsIcon.onmouseenter = function () {
   this.src = "images/settings_blue.png";
@@ -437,6 +439,11 @@ exportIcon.onmouseleave = function () {
 
 infoIcon.onclick = function () {
   displayModal(document.getElementById("infoWrapper"));
+  Settings.timerDisabled = true;
+};
+
+statsDiv.onclick = function () {
+  displayModal(document.getElementById("meanTimeWrapper"));
   Settings.timerDisabled = true;
 };
 

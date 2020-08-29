@@ -18,7 +18,7 @@ let headersArray = [];
 let headerChosen = false;
 let headerChoice = "";
 let headerId = "";
-let currentScramble;
+let currentScramble = "";
 let randomScrambleValue = "";
 let tabsLoaded = false;
 let googleDataLoaded = false;
@@ -300,8 +300,7 @@ function emailResults(e) {
   }
 
   const emailBody = emailRowsArray.join("%0D%0A");
-  console.log(emailBody);
-
+  
   let emailAddress = e.target[0].value;
   window.open(`mailto:${emailAddress}?subject=${year}/${month}/${day}:%203Style%20Trainer%20Session&body=${emailBody}`, '_blank');
 }

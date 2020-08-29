@@ -338,6 +338,86 @@ function addTime(
   return thisTime;
 }
 
+function updateCommMeantTimesTable() {
+  const table = document.getElementById("meantTimeTableBody");
+  table.textContent = '';
+  currentEvent.commTimeAvgs.forEach((timeAvg, i) => {
+    const tableRow = document.createElement("tr");
+    tableRow.id = "meantTimeRow" + i;
+
+    // Number label of time, far left
+    const num = document.createElement("td");
+    num.className = "num";
+    // Add innerHTML, index of time + 1, then a dot
+    num.textContent = i + 1 + ".";
+
+    //Displayed Comm
+    const comm = document.createElement("td");
+    comm.className = "comm";
+    comm.textContent = timeAvg.scramble;
+
+    //Average time
+    const time = document.createElement("td");
+    time.className = "time";
+    time.textContent = `Average Time: `;
+    const avgNum = document.createElement("strong");
+    avgNum.textContent = timeAvg.avg.toFixed(3)
+    time.appendChild(avgNum);
+
+    //Average time
+    const numberOfTimes = document.createElement("td");
+    numberOfTimes.className = "numberOfTimes";
+    numberOfTimes.textContent = `Times Tested: `;
+    const timesNum = document.createElement("strong");
+    timesNum.textContent = timeAvg.no;
+    numberOfTimes.appendChild(timesNum);
+
+    // Add elements to row element
+    tableRow.append(num, comm, time, numberOfTimes);
+
+    
+    table.appendChild(tableRow);
+  });
+}
+
+
+function meanTimePerComm(commValue) {
+
+    function compare( a, b ) {
+    if ( a.avg < b.avg ){
+      return 1;
+    }
+    if ( a.avg > b.avg ){
+      return -1;
+    }
+    return 0;
+  }
+
+  currentEvent.commTimeAvgs = [];
+  if (!currentEvent.comms.includes(commValue)) {
+    currentEvent.comms.push(currentScramble);
+  }
+  currentEvent.comms.forEach((comm) => {
+    let totalTimeforComm = 0;
+    let numOfTimeValues = 0;
+    currentEvent.times.forEach((time) => {
+      if (time.scramble === comm) {
+        totalTimeforComm += time.time;
+        numOfTimeValues++;
+      }
+    });
+    const avgTime = (totalTimeforComm / numOfTimeValues) / 1000;
+    currentEvent.commTimeAvgs.push({
+      scramble: comm,
+      avg: avgTime,
+      no: numOfTimeValues,
+    });
+  });
+  
+  currentEvent.commTimeAvgs.sort(compare);
+  updateCommMeantTimesTable();
+}
+
 // Allows adding them with custom index (for event switching)
 // Index defaults to currentEvent.times.length if time is new
 function addTimeElement(time, index = currentEvent.times.length) {
@@ -429,7 +509,7 @@ function addTimeElement(time, index = currentEvent.times.length) {
 
   // Add elements to row element
   tableRow.append(num, timeEl, comm, timeStamp, del);
- 
+
   // Add row element to table
   var t = document.getElementById("timesTableBody");
   t.insertBefore(tableRow, t.firstElementChild);

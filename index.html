@@ -59,7 +59,7 @@
 
         <div id="scrambleDiv">
             <span id="scramble"></span>
-            
+
         </div>
 
         <div id="timeDiv">
@@ -84,8 +84,22 @@
             </div>
 
             <div id="statsDiv">
+                <button class="extra-button" id="individualMeanTimes">View Individual Mean Times</button>
                 <table id="statsTable">
-                    <tbody id="statsTableBody">
+                    <tbody class="statsTableBody" id="statsTableBody">
+                        
+                        <tr id="sessionMean">
+                            <td class="label">Session mean:</td>
+                            <td class="value special">-</td>
+                        </tr>
+
+                        <tr id="sessionAverage">
+                            <td class="label">Session avg:</td>
+                            <td class="value special">-</td>
+                        </tr>
+
+                        <tr class="gap"></tr>
+
                         <tr id="ao5">
                             <td class="label">Average of 5:</td>
                             <td class="value">-</td>
@@ -94,18 +108,6 @@
                         <tr id="ao12">
                             <td class="label">Average of 12:</td>
                             <td class="value">-</td>
-                        </tr>
-
-                        <tr class="gap"></tr>
-
-                        <tr id="sessionAverage">
-                            <td class="label">Session avg:</td>
-                            <td class="value special">-</td>
-                        </tr>
-
-                        <tr id="sessionMean">
-                            <td class="label">Session mean:</td>
-                            <td class="value special">-</td>
                         </tr>
 
                         <tr class="gap"></tr>
@@ -140,7 +142,7 @@
             <form id="email-form">
                 <label for="email">Email data to me:</label>
                 <input type="email" id="email" required placeholder="Email Address">
-                <button type="submit">Send</button>
+                <button class="extra-button" type="submit">Send</button>
             </form>
 
         </div>
@@ -601,6 +603,21 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    
+    <div class="modalWrapper" id="meanTimeWrapper">
+        <div class="modal" id="meanTimeModal">
+
+            <span class="closeModal">X</span>
+
+            <span id="exportTitle">Individual Mean Times</span>
+
+            <table id="meantTimeTable" class="meanTimeTable">
+
+                <tbody id="meantTimeTableBody">
+                </tbody>
+            </table>
         </div>
     </div>
 
