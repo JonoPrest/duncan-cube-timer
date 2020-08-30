@@ -142,6 +142,7 @@ function startCubeTimer() {
   startButton.style.backgroundColor = "#3498db";
   startButton.style.color = "white";
   startButton.innerText = "STOP";
+  retestBtn.hidden = true;
   // If settings prefers to hide timer while solving
   if (Settings.hideTimer) {
     // Set variable to "Running"
@@ -163,11 +164,11 @@ function stopCubeTimer() {
   if (randomScrambleValue.answer !== "") {
     scramble.textContent = `${randomScrambleValue.value} - ${randomScrambleValue.answer}`;
   }
+  retestBtn.hidden = false;
   
   // Stop timer object
   cubeTimer.stop();
-  startButton.style.backgroundColor = "#444444";
-  startButton.style.color = "white";
+  startButton.removeAttribute('style');
   startButton.innerText = "START";
 
   // Stop updating timer element, then update it one last time

@@ -107,6 +107,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 #tabsDiv {
@@ -1103,8 +1104,14 @@ input:checked + .slider:before {
   color: #3498db;
 }
 
-.extra-button:active {
+
+ button.active {
   background-color:#3498db;
+  color: white;
+}
+
+button.active:hover {
+  filter: brightness(90%);
   color: white;
 }
 

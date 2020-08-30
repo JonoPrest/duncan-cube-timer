@@ -1,12 +1,13 @@
 const eventsTableParent = document.getElementById("eventsParent");
-const bottomContent = document.getElementById("bottomContentContainer");
-const email = document.getElementById("email-form");
 const duncanHeadersList = document.getElementById("duncanHeadersList");
 const currentHeader = document.getElementById("currentHeader");
 const currentHeaderText = document.getElementById("currentHeaderText");
 const loadingTabs = document.getElementById("loading-tabs");
 const spinner = document.getElementById("sheets-spinner");
 const scramble = document.getElementById("scramble");
+const retestBtn = document.getElementById("retest");
+const bottomContent = document.getElementById("bottomContentContainer");
+const email = document.getElementById("email-form");
 
 let eventElements = [];
 let events = [];
@@ -24,6 +25,8 @@ let tabsLoaded = false;
 let googleDataLoaded = false;
 let apiSheetNames = [];
 let currentScrambleArray = [];
+let currentScrambleArrayCounter = 0;
+let retestActive = false;
 
 // Googlesheet key
 const sheetKey = "1c7DzzBmpi3cudSHmpTrCo8bXJHkOjrlC6bsr6nQ7sYQ";
@@ -111,6 +114,25 @@ function setTabHeaders(sheetIndex) {
   });
 }
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 //When header id chosen, updates DOM and runs setScramble Values
 function chooseHeader(e) {
   headerChosen = true;
@@ -121,6 +143,8 @@ function chooseHeader(e) {
   currentHeader.style.display = "flex";
   currentHeaderText.innerText = e.target.innerText;
   setScrambleArrayValues();
+  shuffle(currentScrambleArray);
+  currentScrambleArrayCounter = 0;
 }
 
 //Sets array of all values in sheets as well as array filtered by designation
@@ -209,6 +233,7 @@ function scrambleHeaderValues() {
 function resetHeader() {
   currentHeader.style.display = "none";
   startButton.hidden = true;
+  retestBtn.hidden = true;
   headerChosen = false;
   duncanHeadersList.hidden = false;
   headerChoice = "";
@@ -216,12 +241,43 @@ function resetHeader() {
   scramble.innerText = "";
 }
 
+//Random number for pushing comm forward for reteseting
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// Bring back comm shortly later if it needs to be retested
+function retestComm() {
+  if (retestActive) return;
+  const item = currentScrambleArray[currentScrambleArrayCounter - 1];
+  const randomInt = randomIntFromInterval(3, 10);
+  currentScrambleArray.splice(currentScrambleArrayCounter - 1, 1);
+  if (randomInt > currentScrambleArray.length - currentScrambleArrayCounter) {
+    currentScrambleArray.splice(currentScrambleArray.length, 0, item);
+  } else {
+    currentScrambleArray.splice(currentScrambleArrayCounter - 1 + randomInt, 0, item);
+  }
+  retestActive = true;
+  retestBtn.classList.add("active");
+}
+
 //Code copied from old scramble.js file
 function duncanScramble() {
+
+
   if (headerChosen) {
-    scrambleHeaderValues();
+    // scrambleHeaderValues();
+    if (currentScrambleArrayCounter === currentScrambleArray.length) {
+      shuffle(currentScrambleArray);
+      currentScrambleArrayCounter = 0;
+    }
+    randomScrambleValue = currentScrambleArray[currentScrambleArrayCounter];
+    currentScrambleArrayCounter++;
+    retestActive = false;
+    retestBtn.classList.remove("active");
+    return randomScrambleValue.value; 
   }
-  return randomScrambleValue.value;
+  // return randomScrambleValue.value;
 }
 
 //triggers on the counter
@@ -309,6 +365,7 @@ function emailResults(e) {
 window.addEventListener("DOMContentLoaded", init);
 duncanHeadersList.addEventListener("click", chooseHeader);
 currentHeader.addEventListener("click", resetHeader);
+retestBtn.addEventListener("click", retestComm);
 email.addEventListener("submit", emailResults);
 window.addEventListener("keydown", function (e) {
   if (e.keyCode == 32 && e.target == document.body) {
