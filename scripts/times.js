@@ -276,6 +276,8 @@ function addTime(
   scramble = currentScramble.scramble_string || currentScramble,
   u = true
 ) {
+  //add scramble value
+  currentEvent.scrambleValues.push(currentScramble);
   // Add element to time list on webpage
   var el = addTimeElement(time);
 
@@ -310,6 +312,7 @@ function addTime(
   // Add new time object to currentEvent times array
   currentEvent.times.push(thisTime);
   currentEvent.timesToAvg += 1;
+
 
   thisTime.ao5 = currentEvent.times.average(5);
   thisTime.ao12 = currentEvent.times.average(12);
@@ -480,7 +483,7 @@ function addTimeElement(time, index = currentEvent.times.length) {
   //Stamp for the current commutator
   const comm = document.createElement("td");
   comm.className = "comm";
-  comm.innerHTML = currentScramble;
+  comm.innerHTML = currentEvent.scrambleValues[index];
   comm.onclick = function () {
     displayInfo(currentEvent.times[index]);
   };

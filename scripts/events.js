@@ -3,8 +3,12 @@ function Event(name, index, scrambleFunction) {
   this.name = name;
   this.SheetIndex = index;
 
+  this.scrambleValues = [];
+
   this.times = [];
   this.timesToAvg = 0;
+
+  this.scrambleValues = [];
 
   this.comms = [];
   this.commTimeAvgs = [];
