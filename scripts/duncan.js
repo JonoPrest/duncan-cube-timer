@@ -115,11 +115,12 @@ function setTabHeaders(sheetIndex) {
 }
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -242,7 +243,8 @@ function resetHeader() {
 }
 
 //Random number for pushing comm forward for reteseting
-function randomIntFromInterval(min, max) { // min and max included 
+function randomIntFromInterval(min, max) {
+  // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -255,16 +257,19 @@ function retestComm() {
   if (randomInt > currentScrambleArray.length - currentScrambleArrayCounter) {
     currentScrambleArray.splice(currentScrambleArray.length, 0, item);
   } else {
-    currentScrambleArray.splice(currentScrambleArrayCounter - 1 + randomInt, 0, item);
+    currentScrambleArray.splice(
+      currentScrambleArrayCounter - 1 + randomInt,
+      0,
+      item
+    );
   }
   retestActive = true;
   retestBtn.classList.add("active");
+  retestBtn.blur();
 }
 
 //Code copied from old scramble.js file
 function duncanScramble() {
-
-
   if (headerChosen) {
     // scrambleHeaderValues();
     if (currentScrambleArrayCounter === currentScrambleArray.length) {
@@ -275,7 +280,7 @@ function duncanScramble() {
     currentScrambleArrayCounter++;
     retestActive = false;
     retestBtn.classList.remove("active");
-    return randomScrambleValue.value; 
+    return randomScrambleValue.value;
   }
   // return randomScrambleValue.value;
 }
@@ -356,9 +361,12 @@ function emailResults(e) {
   }
 
   const emailBody = emailRowsArray.join("%0D%0A");
-  
+
   let emailAddress = e.target[0].value;
-  window.open(`mailto:${emailAddress}?subject=${year}/${month}/${day}:%203Style%20Trainer%20Session&body=${emailBody}`, '_blank');
+  window.open(
+    `mailto:${emailAddress}?subject=${year}/${month}/${day}:%203Style%20Trainer%20Session&body=${emailBody}`,
+    "_blank"
+  );
 }
 
 //Event listeners for loading google data and clicking on headers

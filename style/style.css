@@ -1092,7 +1092,10 @@ input:checked + .slider:before {
 .extra-button {
   background-color: #444444;
   color: white;
-  transition: color 0.2s ease
+  opacity: 1;
+  transition-property: opacity, color;
+  transition-duration: 0.5s, 0.2s;
+  transition-delay: 0.5s, 0s;
 }
 
 #statsDiv button {
@@ -1105,9 +1108,10 @@ input:checked + .slider:before {
 }
 
 
- button.active {
+ .extra-button.active {
   background-color:#3498db;
   color: white;
+  opacity: 0;
 }
 
 button.active:hover {

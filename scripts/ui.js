@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start-button");
+const { body } = document;
 
 var red = "#e74c3c";
 var green = "#2ecc71";
@@ -22,6 +23,8 @@ var inspectionInterval;
 // Defined as function to rebind event handlers and avoid
 // Rapid re-calling of event function when key is held down
 function onkeydownFunction(e) {
+
+
   if (!headerChosen) {
     return;
   }
@@ -551,6 +554,7 @@ function displayModal(wrapper) {
 function startButtonPressed(e) {
   onkeydownFunction(e);
   keyUp(e);
+  e.target.blur();
 }
 
 document.addEventListener("keyup", keyUp);
